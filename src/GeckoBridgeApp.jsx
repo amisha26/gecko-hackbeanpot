@@ -3,7 +3,7 @@ import useBridgeData from "./useBridgeData";
 
 let GeckoBridgeApp = () => {
   let bridgeData = useBridgeData("MA");
-  console.log(bridgeData);
+  console.log(bridgeData)
   return (
     <div>
       <h1>Gecko Bridge Inventory Data</h1>
