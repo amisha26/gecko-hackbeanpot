@@ -8,7 +8,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. Download [git](https://git-scm.com/)
 2. Download [npm](https://www.npmjs.com/package/npm)
-3. 
 
 ## Running the project
 
