@@ -4,9 +4,6 @@ This repository is for the workshop event with Gecko Robotics and HackBeanpot.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-TO DO:
-- data explanation, links, etc. maybe data model
-
 ## Prerequisites
 
 1. Download [git](https://git-scm.com/)
