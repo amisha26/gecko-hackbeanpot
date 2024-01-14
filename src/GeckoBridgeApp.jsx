@@ -22,14 +22,15 @@ let GeckoBridgeApp = () => {
   const binWidth = 2;
   return (
     <div>
-      <h1>Gecko Bridge Inventory Data</h1>
-      <LowHighSelector
-        bins={bins}
-        startValue={startValue}
-        binWidth={binWidth}
-      />
-
       {/* <your React components here> */}
+      <h1>Bridge Inventory Data</h1>
+      <div height={100} width={200}>
+        <LowHighSelector
+          bins={bins}
+          startValue={startValue}
+          binWidth={binWidth}
+        />
+      </div>
 
       {/* For an example of how to update the state, use: */}
       {/* <GeckoUseBridgeExample /> */}

@@ -23,14 +23,15 @@ const HistogramWrapper = styled.div`
   padding: 0;
   margin: 0;
 `;
+
 /**
- *
  * @param nonZeroBins - an array, where each element is an array of length 2 following the format [bin #, count]
  * @param startValue - the start value, so bin 0 goes from [ startValue, startValue + binWidth)
- * @param
- *
- *
+ * @param binWidth - width of each bin
+ * @param filteredStart - the histogram up to this value will appear greyscale
+ * @param filteredEnd - the histogram after this value will appear greyscale
  */
+
 export const Histogram = ({
   nonZeroBins,
   startValue,
@@ -44,21 +45,16 @@ export const Histogram = ({
       return {
         bins: nonZeroBins,
         endValue: startValue,
-        colorScale: new ColorcetColorScale(),
+        colorScale: new ColorcetColorScale().getTextureURL(),
         numBins: 0,
       };
     const bins = addZeroBins(nonZeroBins, numBins);
-    const endValue = numBins * binWidth + startValue;
+    const endValue = (numBins + 1) * binWidth + startValue;
     const colorScale = new ColorcetColorScale({
       name: "R4",
-      valuesToColorRange: [
-        [0, startValue],
-        [1, endValue],
-      ],
-    });
+    }).getTextureURL();
     return { bins, endValue, colorScale, numBins };
   }, [nonZeroBins, startValue, binWidth]);
-
   return bins.length === 0 ? null : (
     <HistogramWrapper>
       <ParentSize>
@@ -78,7 +74,7 @@ export const Histogram = ({
                 style={{
                   zIndex: 1,
                   width: Math.floor(
-                    ((filteredEnd - filteredStart) / (endValue - startValue)) *
+                    ((filteredEnd - startValue) / (endValue - startValue)) *
                       width
                   ),
                   height: height,

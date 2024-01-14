@@ -1,55 +1,47 @@
 import React from "react";
 import { styled } from "styled-components";
-import * as SliderPrimitive from "@radix-ui/react-slider";
+import * as Slider from "@radix-ui/react-slider";
 import { Histogram } from "./Histogram";
 
-const StyledSlider = styled(SliderPrimitive.Root, {
-  position: "relative",
-  display: "flex",
-  alignItems: "center",
-  userSelect: "none",
-  touchAction: "none",
-  "&[data-orientation=horizontal]": { height: 16 },
-  "&[data-orientation=vertical]": {
-    flexDirection: "column",
-    width: 16,
-    height: "100%",
-  },
-});
+const SliderRoot = styled(Slider.Root)`
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  user-select: none;
+  touch-action: none;
+  height: 20px;
+`;
 
-const StyledTrack = styled(SliderPrimitive.Track, {
-  backgroundColor: "gainsboro",
-  position: "relative",
-  flexGrow: 1,
-  "&[data-orientation=horizontal]": { height: 2 },
-  "&[data-orientation=vertical]": { width: 2 },
-});
+const SliderTrack = styled(Slider.Track)`
+  position: relative;
+  background-color: gainsboro;
+  display: flex;
+  flex-shrink: 1;
+  flex-grow: 1;
+  border-radius: 5px;
+  overflow: clip;
+  height: 10px;
 
-const StyledRange = styled(SliderPrimitive.Range, {
-  position: "absolute",
-  backgroundColor: "dodgerblue",
-  borderRadius: "9999px",
-  "&[data-orientation=horizontal]": { height: "100%" },
-  "&[data-orientation=vertical]": { width: "100%" },
-});
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
-const StyledThumb = styled(SliderPrimitive.Thumb, {
-  display: "block",
-  width: 16,
-  height: 16,
-  backgroundColor: "white",
-  border: "1px solid lightgray",
-  borderRadius: "20px",
-  ":focus": {
-    outline: "none",
-    borderColor: "dodgerblue",
-  },
-});
+const SliderThumb = styled(Slider.Thumb)`
+  display: block;
+  width: 16px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  height: 16px;
+  border-radius: 10px;
+`;
 
 export const LowHighSelector = ({ bins, startValue, binWidth }) => {
   const endValue = React.useMemo(() => {
     const numBins = bins.at(-1)[0];
-    const endValue = numBins * binWidth + startValue;
+    const endValue = (numBins + 1) * binWidth + startValue;
     return endValue;
   }, [bins, binWidth, startValue]);
   const [value, setValue] = React.useState([startValue, endValue]);
@@ -63,18 +55,20 @@ export const LowHighSelector = ({ bins, startValue, binWidth }) => {
         filteredStart={value[0]}
         filteredEnd={value[1]}
       />
-      <StyledSlider
+
+      <SliderRoot
+        width={100}
         min={startValue}
         max={endValue}
         value={value}
         onValueChange={setValue}
       >
-        <StyledTrack>
-          <StyledRange />
-        </StyledTrack>
-        <StyledThumb key={value[0]} />
-        <StyledThumb key={value[1]} />
-      </StyledSlider>
+        <SliderTrack>
+          <Slider.Range />
+        </SliderTrack>
+        <SliderThumb />
+        <SliderThumb />
+      </SliderRoot>
     </div>
   );
 };
