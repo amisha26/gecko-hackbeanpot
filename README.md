@@ -28,9 +28,9 @@ The page will reload when you make changes.
 
 We've pulled National Bridge Inventory data from [this source](https://www.fhwa.dot.gov/bridge/nbi/ascii2023.cfm). In `src/data`, there's `.txt`. files containing CSV data for each state. 
 
-The row names are consistent across each file. [This record format table](https://www.fhwa.dot.gov/bridge/nbi/format.cfm) provides the names of each of the columns, and you can use [this pdf](https://www.fhwa.dot.gov/bridge/mtguide.pdf) to get more information about what each value means. 
+The column names are consistent across each file. [This record format table](https://www.fhwa.dot.gov/bridge/nbi/format.cfm) provides the names of each of the columns, and you can use [this pdf](https://www.fhwa.dot.gov/bridge/mtguide.pdf) to get more information about what each value means. 
 
-In the data, usually each column title is the record format it's referring to transformed to be entirely capitalized and separated by underscores, with a 3-digit representation of the item number appended to the end. For example, the first [record]([This record format table](https://www.fhwa.dot.gov/bridge/nbi/format.cfm)) in the table is State Code, which has an item number of 1. The column title for this value is `STATE_CODE_001`. You can look at the data files to see other examples. 
+In the data, usually each column title is the record format it's referring to transformed to be entirely capitalized and separated by underscores, with a 3-digit representation of the item number appended to the end. For example, the first [record](https://www.fhwa.dot.gov/bridge/nbi/format.cfm) in the table is State Code, which has an item number of 1. The column title for this value is `STATE_CODE_001`. You can look at the data files to see other examples. 
 
 We've provided a way to get and use this data (feel free to add your own function!):
 
