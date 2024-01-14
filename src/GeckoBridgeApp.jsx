@@ -3,8 +3,8 @@ import useBridgeData from "./useBridgeData";
 import { LowHighSelector } from "./Selector";
 
 let GeckoBridgeApp = () => {
-  let bridgeData = useBridgeData("MA");
-  console.log(bridgeData);
+  // let bridgeData = useBridgeData("MA");
+  // console.log(bridgeData);
   const bins = [
     [0, 1],
     [2, 6],
