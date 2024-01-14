@@ -1,6 +1,7 @@
 import React from "react";
 import useBridgeData from "./useBridgeData";
 import { LowHighSelector } from "./Selector";
+import GeckoUseBridgeExample from "./GeckoUseBridgeExample";
 
 let GeckoBridgeApp = () => {
   let bridgeData = useBridgeData("MA");
@@ -24,6 +25,8 @@ let GeckoBridgeApp = () => {
     <div>
       {/* <your React components here> */}
       <h1>Bridge Inventory Data</h1>
+
+      {/* An example of how to use the histogram component: */}
       <div height={100} width={200}>
         <LowHighSelector
           bins={bins}
@@ -32,8 +35,8 @@ let GeckoBridgeApp = () => {
         />
       </div>
 
-      {/* For an example of how to update the state, use: */}
-      {/* <GeckoUseBridgeExample /> */}
+      {/* For an example of how to update the state, see: */}
+      <GeckoUseBridgeExample />
     </div>
   );
 };

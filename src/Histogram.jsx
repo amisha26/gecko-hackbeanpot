@@ -2,7 +2,7 @@ import React from "react";
 import * as d3 from "d3";
 import ParentSize from "@visx/responsive/lib/components/ParentSize";
 import styled from "styled-components";
-import { ColorcetColorScale } from "colorcet-js";
+import { ColorcetColorScale } from "./colorcet/colorcet-js.ts";
 
 const HistogramAdjustor = styled.div`
   position: absolute;
