@@ -17,5 +17,4 @@ let GeckoUseBridgeExample = () => {
         </div>
     );
 };
-
 export default GeckoUseBridgeExample;
